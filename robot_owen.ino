@@ -1,37 +1,3 @@
-/*
-  OWEN Robot Controller
-  Compatible con app Flutter (APK fijo)
-  ----------------------------------------
-  MAPA DE PINES TB6612FNG:
-    PWMA  -> D5   (PWM real ✓)
-    A1    -> D4   (digital)
-    A2    -> D2   (digital)
-    PWMB  -> D6   (PWM real ✓)
-    B1    -> D7   (digital)
-    B2    -> D13  (digital)
-    STBY  -> D8   (digital)
-
-  SERVOS (Servo.h gestiona su propio PWM):
-    BASE  -> D9
-    BRAZO -> D10
-    PINZA -> D11
-
-  HC-06:
-    TX -> D1 (RX Arduino)
-    RX -> D0 (TX Arduino) + divisor de voltaje 1k/2k
-
-  MOTORES:
-    Canal A = lado IZQUIERDO (los 2 motores izq. en paralelo)
-    Canal B = lado DERECHO   (los 2 motores der. en paralelo)
-
-  NOTAS:
-    - D5 y D6 son timer0 (980 Hz). D9, D10, D11 son timer1/2.
-    - Servo.h deshabilita PWM en D9 y D10, pero acá los usamos
-      solo para servos, no para motores. Sin conflicto.
-    - D13 tiene LED integrado; no afecta funcionamiento pero
-      el LED parpadeará con el motor. Se puede ignorar.
-*/
-
 #include <Servo.h>
 
 // ============================================================
@@ -64,7 +30,7 @@
 // ============================================================
 int   velocidad   = 60;       // 0-100 (arranca con algo de velocidad)
 String modo       = "CARRERA";
-String lastCmd    = "";        // Para no repetir el mismo comando
+String lastCmd    = "";
 
 // Servos
 Servo servoBase;
